@@ -10,10 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker build -t aujourdui/muiti-client  -f Dockerfile.dev .
-      - run: docker build -t aujourdui/muiti-nginx  -f Dockerfile.dev .
-      - run: docker build -t aujourdui/muiti-server  -f Dockerfile.dev .
-      - run: docker build -t aujourdui/muiti-worker  -f Dockerfile.dev .
+      - run: docker build -t aujourdui/muiti-client ./client
+      - run: docker build -t aujourdui/muiti-nginx ./nginx
+      - run: docker build -t aujourdui/muiti-server ./server
+      - run: docker build -t aujourdui/muiti-worker ./worker
       - run: docker run -e CI=true aujourdui/fib-docker npm test
 
       - name: Generate deployment package
