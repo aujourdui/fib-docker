@@ -14,7 +14,7 @@ jobs:
       - run: docker build -t aujourdui/muiti-nginx ./nginx
       - run: docker build -t aujourdui/muiti-server ./server
       - run: docker build -t aujourdui/muiti-worker ./worker
-      - run: docker run -e CI=true cygnetops/react-test npm test
+      - run: docker run -e CI=true aujourdui/fib-docker npm test -- --coverage
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
