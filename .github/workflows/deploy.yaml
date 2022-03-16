@@ -16,10 +16,10 @@ jobs:
       - run: docker build -t cygnetops/muiti-nginx ./nginx
       - run: docker build -t cygnetops/muiti-server ./server
       - run: docker build -t cygnetops/muiti-worker ./worker
-      - run: docker push cygnetops/multi-client
-      - run: docker push cygnetops/multi-nginx
-      - run: docker push cygnetops/multi-server
-      - run: docker push cygnetops/multi-worker
+      # - run: docker push cygnetops/multi-client
+      # - run: docker push cygnetops/multi-nginx
+      # - run: docker push cygnetops/multi-server
+      # - run: docker push cygnetops/multi-worker
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
