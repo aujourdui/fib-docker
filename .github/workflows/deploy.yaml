@@ -16,10 +16,10 @@ jobs:
       - run: docker build -t aujourdui/muiti-nginx ./nginx
       - run: docker build -t aujourdui/muiti-server ./server
       - run: docker build -t aujourdui/muiti-worker ./worker
-      - run: docker push aujourdui/multi-client:latest
-      - run: docker push aujourdui/multi-nginx:latest
-      - run: docker push aujourdui/multi-server:latest
-      - run: docker push aujourdui/multi-worker:latest
+      - run: docker push aujourdui:80/multi-client:latest
+      - run: docker push aujourdui:80/multi-nginx:latest
+      - run: docker push aujourdui:80/multi-server:latest
+      - run: docker push aujourdui:80/multi-worker:latest
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
