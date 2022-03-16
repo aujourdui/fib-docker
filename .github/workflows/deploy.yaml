@@ -10,16 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker build -t cygnetops/react-test -f ./client/Dockerfile.dev ./client
-      - run: docker run -e CI=true cygnetops/react-test npm test
-      - run: docker build -t cygnetops/muiti-client ./client
-      - run: docker build -t cygnetops/muiti-nginx ./nginx
-      - run: docker build -t cygnetops/muiti-server ./server
-      - run: docker build -t cygnetops/muiti-worker ./worker
-      # - run: docker push cygnetops/multi-client
-      # - run: docker push cygnetops/multi-nginx
-      # - run: docker push cygnetops/multi-server
-      # - run: docker push cygnetops/multi-worker
+      - run: docker build -t aujourdui/react-test -f ./client/Dockerfile.dev ./client
+      - run: docker run -e CI=true aujourdui/react-test npm test
+      - run: docker build -t aujourdui/muiti-client ./client
+      - run: docker build -t aujourdui/muiti-nginx ./nginx
+      - run: docker build -t aujourdui/muiti-server ./server
+      - run: docker build -t aujourdui/muiti-worker ./worker
+      - run: docker push aujourdui/multi-client
+      - run: docker push aujourdui/multi-nginx
+      - run: docker push aujourdui/multi-server
+      - run: docker push aujourdui/multi-worker
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
